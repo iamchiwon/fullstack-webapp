@@ -14,6 +14,14 @@ const schema = a.schema({
       done: a.boolean(),
     })
     .authorization((allow) => [allow.guest()]),
+
+  Image: a
+    .model({
+      path: a.string(),
+      size: a.integer(),
+      url: a.string(),
+    })
+    .authorization((allow) => [allow.guest()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
