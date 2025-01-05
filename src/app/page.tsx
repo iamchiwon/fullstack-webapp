@@ -35,6 +35,11 @@ export default function Home() {
     fetchTodoList();
   };
 
+  const handleToggleTodo = async (id: string) => {
+    await Database.toggleTodo(id);
+    fetchTodoList();
+  };
+
   return (
     <div className="p-4">
       <button
@@ -64,7 +69,11 @@ export default function Home() {
         <div className="mt-4">
           {todoList.map((todo) => (
             <div className="flex gap-2 items-center" key={todo.id}>
-              <input type="checkbox" checked={todo.done} readOnly />
+              <input
+                type="checkbox"
+                checked={todo.done}
+                onChange={() => handleToggleTodo(todo.id)}
+              />
               {todo.content}
               <button
                 className="text-red-500 ml-4 font-bold"

@@ -33,10 +33,17 @@ const deleteTodo = async (id: string) => {
   await client.models.Todo.delete({ id });
 };
 
+const toggleTodo = async (id: string) => {
+  const todo = await client.models.Todo.get({ id });
+  const isDone = todo.data?.done ?? true;
+  await client.models.Todo.update({ id, done: !isDone });
+};
+
 const Database = {
   getTodoList,
   createTodo,
   deleteTodo,
+  toggleTodo,
 };
 
 export default Database;
