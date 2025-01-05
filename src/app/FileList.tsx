@@ -2,6 +2,7 @@ import Storage from "@/libs/storage";
 import { ImageItem } from "@/shared/types/ImageItem";
 import { fileSizeFormatter } from "@/utils/formatter";
 import { useEffect, useState } from "react";
+import { ReloadButton } from "@/components/ReloadBuitton";
 
 export const FileList = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -32,7 +33,15 @@ export const FileList = () => {
 
   return (
     <div className="pt-4">
-      <div className="text-2xl font-bold">File List</div>
+      <div className="flex items-center gap-4 mb-1">
+        <div className="text-2xl font-bold">File List</div>
+        <ReloadButton
+          onClick={() => {
+            setFileList([]);
+            fetchList();
+          }}
+        />
+      </div>
 
       <div className="flex gap-2">
         <input

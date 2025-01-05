@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ToDoItem } from "../shared/types/ToDoItem";
 import Database from "@/libs/database";
+import { ReloadButton } from "@/components/ReloadBuitton";
 
 export const ToDoList = () => {
   const [todoList, setTodoList] = useState<ToDoItem[]>([]);
@@ -35,7 +36,15 @@ export const ToDoList = () => {
 
   return (
     <div className="pt-4">
-      <div className="text-2xl font-bold">Todo List</div>
+      <div className="flex items-center gap-4 mb-1">
+        <div className="text-2xl font-bold">Todo List</div>
+        <ReloadButton
+          onClick={() => {
+            setTodoList([]);
+            fetchTodoList();
+          }}
+        />
+      </div>
       <div className="flex gap-2">
         <input
           type="text"
