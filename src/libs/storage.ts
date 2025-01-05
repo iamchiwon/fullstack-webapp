@@ -2,7 +2,7 @@ import { Schema } from "@amplify/data/resource";
 import outputs from "@root/amplify_outputs.json";
 import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/api";
-import { getUrl, remove, uploadData } from "aws-amplify/storage";
+import { getUrl, uploadData } from "aws-amplify/storage";
 import { ImageItem } from "../shared/types/ImageItem";
 
 Amplify.configure(outputs);
