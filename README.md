@@ -2,12 +2,15 @@
 
 Next.js App on Amplify
 
-- Use Next.js frontend/backend API
+- Next.js
+  - [x] frontend
+  - [x] backend API
 - With Amplify:
-  - Use database
-  - Use storage
-  - Use function
-  - Use authentication
+  - [x] Use database
+  - [x] Use storage
+  - [x] Use function
+  - [ ] Use authentication
+  - [ ] Resources belong to user
 
 ## Steps
 
