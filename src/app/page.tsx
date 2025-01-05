@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { ToDoList } from "./ToDoList";
-
+import { FileList } from "./FileList";
 export default function Home() {
   const [greeting, setGreeting] = useState("");
 
@@ -21,6 +21,7 @@ export default function Home() {
       </button>
       <div>{greeting}</div>
       <ToDoList />
+      <FileList />
     </div>
   );
 }
