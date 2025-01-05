@@ -42,3 +42,36 @@ const response = await fetch("/api/hello");
 const data = await response.json();
 setGreeting(data.message);
 ```
+
+### 4. Use Database
+
+#### Local test
+
+```bash
+$ npx ampx sandbox
+```
+
+`/src/libs/database.ts`
+
+```ts
+import outputs from "@root/amplify_outputs.json";
+
+Amplify.configure(outputs);
+const client = generateClient<Schema>();
+```
+
+```ts
+const getTodoList = async () => {
+  const resource = await client.models.Todo.list();
+
+  const todoList = resource.data.map((item) => {
+    return {
+      id: item.id,
+      content: item.content,
+      done: item.done,
+    } as ToDoItem;
+  });
+
+  return todoList;
+};
+```
