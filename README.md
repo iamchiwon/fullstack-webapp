@@ -16,3 +16,9 @@ Next.js App on Amplify
 ```bash
 $ npx create-next-app@latest
 ```
+
+2. add amplify
+
+```bash
+$ npm create amplify@latest
+```
