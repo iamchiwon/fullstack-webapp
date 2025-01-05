@@ -75,3 +75,18 @@ const getTodoList = async () => {
   return todoList;
 };
 ```
+
+### 5. Use Storage
+
+`/src/libs/storage.ts`
+
+```ts
+import { uploadData } from "aws-amplify/storage";
+
+const uploadFile = async (file: File) => {
+  await uploadData({
+    path: `images/${file.name}`,
+    data: file,
+  });
+};
+```
