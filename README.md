@@ -22,3 +22,5 @@ $ npx create-next-app@latest
 ```bash
 $ npm create amplify@latest
 ```
+
+(Deployed on Amplify)
