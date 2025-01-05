@@ -90,3 +90,34 @@ const uploadFile = async (file: File) => {
   });
 };
 ```
+
+### 6. Use Functions
+
+`/amplify/data/resource.ts`
+
+```ts
+sayHello: a
+    .query()
+    .arguments({ name: a.string() })
+    .returns(a.string())
+    .handler(a.handler.function(sayHello))
+    .authorization((allow) => [allow.guest()]),
+```
+
+`/amplify/functions/hello.handler.ts`
+
+```ts
+export const handler: Schema["sayHello"]["functionHandler"] = async (event) => {
+  const { name } = event.arguments;
+  const response = {
+    message: `Hello, ${name} from AWS!`,
+  };
+  return JSON.stringify(response);
+};
+```
+
+`/src/libs/functions.ts`
+
+```ts
+const response = await client.queries.sayHello({ name });
+```
