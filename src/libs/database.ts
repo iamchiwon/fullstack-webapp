@@ -29,9 +29,14 @@ const createTodo = async (content: string) => {
   });
 };
 
+const deleteTodo = async (id: string) => {
+  await client.models.Todo.delete({ id });
+};
+
 const Database = {
   getTodoList,
   createTodo,
+  deleteTodo,
 };
 
 export default Database;

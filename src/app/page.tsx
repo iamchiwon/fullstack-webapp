@@ -30,6 +30,11 @@ export default function Home() {
     fetchTodoList();
   }, []);
 
+  const handleDeleteTodo = async (id: string) => {
+    await Database.deleteTodo(id);
+    fetchTodoList();
+  };
+
   return (
     <div className="p-4">
       <button
@@ -61,7 +66,12 @@ export default function Home() {
             <div className="flex gap-2 items-center" key={todo.id}>
               <input type="checkbox" checked={todo.done} readOnly />
               {todo.content}
-              <button className="text-red-500 ml-4 font-bold">DEL</button>
+              <button
+                className="text-red-500 ml-4 font-bold"
+                onClick={() => handleDeleteTodo(todo.id)}
+              >
+                DEL
+              </button>
             </div>
           ))}
         </div>
