@@ -11,16 +11,34 @@ Next.js App on Amplify
 
 ## Steps
 
-1. create next.js app
+### 1. create next.js app
 
 ```bash
 $ npx create-next-app@latest
 ```
 
-2. add amplify
+### 2. add amplify
 
 ```bash
 $ npm create amplify@latest
 ```
 
 (Deployed on Amplify)
+
+### 3. Use backend API in Next.js
+
+`/src/app/api/hello/route.ts`
+
+```ts
+export async function GET() {
+  return NextResponse.json({ message: "Hello from Next.js!" });
+}
+```
+
+`src/app/page.tsx`
+
+```ts
+const response = await fetch("/api/hello");
+const data = await response.json();
+setGreeting(data.message);
+```
